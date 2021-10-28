@@ -1,0 +1,286 @@
+.tic {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+}
+
+.wrapper {
+  /* border: 5px solid rgb(16, 201, 139); */
+  width: 300px;
+  animation: gridrotate 1s ease-in-out;
+  border-radius: 37px;
+  background: #e0e0e0;
+  box-shadow: 8px 8px 16px #c3c3c3, -8px -8px 16px #fdfdfd;
+  margin: 0 auto;
+}
+
+@keyframes gridrotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.block {
+  width: 100px;
+  height: 100px;
+  border-right: 0px;
+  border-bottom: 0px;
+  transition: border-right 0.5s ease-in, border-bottom 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  /* box-shadow: 2px 1px #bcbcbc, -2px -2px 1px #ffffff; */
+
+  /* background-color: burlywood; */
+}
+
+.block:hover {
+  /* border-radius: 39px; */
+  /* background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow: 5px 5px 10px #d5d5d5, -5px -5px 10px #ebebeb; */
+
+  /* border-radius: 37px; */
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 6px 6px 12px #bebebe, 0px 0px 2px #ffffff;
+}
+
+.row {
+  display: flex;
+}
+
+.row .block:last-child {
+  border-right: 0px solid rgb(16, 201, 139);
+}
+
+.row:last-child .block {
+  border-bottom: 0px;
+}
+
+@keyframes hor {
+}
+
+.circle {
+  width: 0px;
+  height: 50px;
+  border: 5px solid teal;
+  border-radius: 50%;
+  transition: width 2s;
+  box-shadow: 5px 5px 7px #bcbcbc, -5px -5px 7px #ffffff;
+}
+
+.cross {
+  position: relative;
+  width: 0px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftCross {
+  position: absolute;
+  width: 0px;
+  height: 5px;
+  background-color: red;
+  transform: rotate(45deg);
+  transition: width 1s;
+  box-shadow: 5px 5px 7px #bcbcbc, -5px -5px 7px #ffffff;
+}
+.rightCross {
+  position: absolute;
+  width: 0px;
+  height: 5px;
+  background-color: red;
+  transform: rotate(-45deg);
+  transition: width 1s;
+  box-shadow: 5px 5px 7px #bcbcbc, -5px -5px 7px #ffffff;
+}
+
+.strike {
+  position: absolute;
+  width: 0px;
+  height: 5px;
+  background-color: black;
+  transform: rotate(0deg);
+  transition: width 2s;
+}
+
+.players {
+  display: flex;
+}
+.first {
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  margin-top: 30px;
+  margin-right: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: -1px 2px 13px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 2px 13px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 2px 13px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 5px solid rgb(16, 201, 139); */
+}
+
+.second {
+  border-radius: 10px;
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  margin-top: 30px;
+  -webkit-box-shadow: -1px 2px 13px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 2px 13px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 2px 13px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currentPlayer {
+  -webkit-box-shadow: 0px 0px 80px 15px rgba(45, 255, 196, 0.75);
+  -moz-box-shadow: 0px 0px 80px 15px rgba(45, 255, 196, 0.75);
+  box-shadow: 0px 0px 30px 10px rgba(45, 255, 196, 0.75);
+}
+
+.gameend {
+  position: absolute;
+
+  width: 0px;
+
+  height: 200px;
+  transition: width 2s, transform 2s;
+  /* background: rgba(104, 238, 56, 0.3); */
+  background: #2f3a33;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+
+  /* border-radius: 52px;
+  background: #43cb70;
+  box-shadow: 21px 21px 38px #329854, -21px -21px 38px #54fe8c; */
+}
+
+.threeDtext {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1em;
+  color: hsl(0deg 8% 35%);
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 60px;
+  /* color: #dddddd; */
+  text-shadow: 6px -6px 9px #949494, -0px 0px 9px #ffffff;
+}
+
+.hideend {
+  display: none;
+}
+.showend {
+  display: block;
+}
+
+.threeDtext {
+  animation: neonAnim 2s alternate-reverse infinite;
+  color: #00ff61;
+  font-family: Cursive;
+  font-size: 60px;
+}
+@keyframes neonAnim {
+  from {
+    text-shadow: 0 0 25px rgba(0, 255, 97, 0.7), 0 0 55px rgba(0, 255, 97, 0.7),
+      0 0 115px rgba(0, 255, 97, 0.7);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(0, 255, 97, 0.7), 0 0 35px rgba(0, 255, 97, 0.7),
+      0 0 75px rgba(0, 255, 97, 0.7);
+  }
+}
+
+@keyframes neonAnimLoose {
+  from {
+    text-shadow: 0 0 10px rgba(255, 0, 61, 0.7), 0 0 40px rgba(255, 0, 61, 0.7),
+      0 0 100px rgba(255, 0, 61, 0.7);
+  }
+  to {
+    text-shadow: 0 0 5px rgba(255, 0, 61, 0.7), 0 0 20px rgba(255, 0, 61, 0.7),
+      0 0 60px rgba(255, 0, 61, 0.7);
+  }
+}
+
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.center {
+  width: fit-content;
+  margin: 0px auto;
+  margin-top: 20px;
+}
+body {
+  margin: 0px;
+}
+
+@media screen and (max-width: 320px) {
+  .block {
+    width: 80px;
+    height: 80px;
+  }
+
+  .first {
+    width: 100px;
+  }
+  .second {
+    width: 100px;
+  }
+
+  .wrapper {
+    width: 240px;
+  }
+
+  .leftCross {
+    width: 20px;
+  }
+  .rightCross {
+    width: 20px;
+  }
+  .gameend {
+    width: 280px !important;
+  }
+  .threeDtext {
+    font-size: 40px;
+  }
+}
