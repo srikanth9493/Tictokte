@@ -2,6 +2,8 @@ let ticwrapper = document.querySelector(".wrapper");
 let btnclksound = new Audio("./src/mp3/btnclick.wav");
 let strikeSound = new Audio("./src/mp3/strike.wav");
 let gamewinsound = new Audio("./src/mp3/gamewon.wav");
+let loosesound = new Audio("./src/mp3/loose.wav");
+let drawsound = new Audio("./src/mp3/draw.wav");
 let spinsound = document.getElementById("spinaudio");
 
 let gameend = document.querySelector(".gameend");
@@ -138,13 +140,16 @@ function addEvent(gridnodes, n) {
               let [dir, index] = res;
               console.log(dir, index);
               strikegrid(dir, index);
-              gameend.classList.add("showend");
+              setTimeout(() => {
+                gameend.classList.add("showend");
+              }, 1000);
+
               stopgame = true;
             }
             if (!stopgame) {
               setTimeout(() => {
                 roboplayer(n);
-              }, Math.floor(Math.random() * 5) * 1000);
+              }, Math.floor(Math.random() * (2 - 1) + 1) * 1000);
             }
           }
         }
@@ -314,7 +319,7 @@ function roboplayer(n) {
     strikeSound.currentTime = 0;
     strikeSound.play();
     strikeSound.onended = () => {
-      gamewinsound.play();
+      loosesound.play();
     };
 
     // gamewinsound.play();
@@ -322,17 +327,23 @@ function roboplayer(n) {
     console.log(dir, index);
     strikegrid(dir, index);
 
-    gameend.classList.add("showend");
+    setTimeout(() => {
+      gameend.classList.add("showend");
+    }, 1000);
+
     threeDtext.textContent = "You lost 😑...Try again";
     threeDtext.style.animation = "neonAnimLoose 2s alternate-reverse infinite";
     threeDtext.style.color = "#FF003D";
+
+    stopgame = true;
   }
 
   if (isDraw) {
     gameend.classList.add("showend");
-    threeDtext.textContent = "DRAW💪...Will Fight Again ";
+    threeDtext.textContent = "DRAW... Will Fight Again ";
     threeDtext.style.animation = "neonAnimLoose 2s alternate-reverse infinite";
     threeDtext.style.color = "#FF003D";
+    drawsound.play();
   }
   // gameend.style.background = "rgb(226 58 58 / 38%)";
 }
