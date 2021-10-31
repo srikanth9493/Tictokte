@@ -1,4 +1,4 @@
-# Tictokte
+# Tictoktoe
 This is simple tic-toc-toe app
 it has two players one is you,other is automated player.
 
