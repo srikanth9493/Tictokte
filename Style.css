@@ -1,5 +1,5 @@
 .tic {
-  height: 100vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,6 +252,42 @@
 }
 body {
   margin: 0px;
+  font-size: 2rem;
+}
+
+.footer {
+  /* margin-top: 30px; */
+  background-color: rgb(16, 201, 139);
+  padding: 5px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.star {
+  background-color: white;
+
+  padding: 10px;
+  display: inline-block;
+  padding: 0.25 em 0.4 em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25 rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  padding-right: 0.6 em;
+  padding-left: 0.6 em;
+  /* border-radius: 10 rem; */
+
+  color: #212529;
+  background-color: #f8f9fa;
+  /* border-radius: 0.25rem; */
+  border-radius: 10rem;
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 400px) {
@@ -283,5 +319,8 @@ body {
   }
   .threeDtext {
     font-size: 40px;
+  }
+  .star {
+    margin-right: 0px;
   }
 }

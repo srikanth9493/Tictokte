@@ -20,12 +20,10 @@ let first = document.querySelector(".first");
 let second = document.querySelector(".second");
 
 let playagain = document.getElementById("playagain");
-console.log(playagain, "playagain");
+
 playagain.addEventListener("click", (e) => {
-  console.log("clicked");
   window.location.reload();
 });
-console.log(second);
 
 first.appendChild(createCross());
 second.appendChild(createCirel());
@@ -72,10 +70,8 @@ function generateGrid(n) {
 
   ticwrapper.innerHTML = gird.join("");
   let rowsele = document.querySelectorAll(".row");
-  console.log(rowsele);
-  rowsele.forEach((row) => gridnodes.push(row.children));
 
-  console.log(gridnodes);
+  rowsele.forEach((row) => gridnodes.push(row.children));
 
   let blocks = document.querySelectorAll(".block");
 
@@ -91,7 +87,6 @@ function generateGrid(n) {
           gridnodes[i][j].style.borderRight = "5px solid rgb(16, 201, 139)";
         }, 1000);
       } else {
-        console.log(i, j);
         setTimeout(() => {
           gridnodes[i][j].style.borderRight = "5px solid rgb(16, 201, 139)";
           gridnodes[i][j].style.borderBottom = "5px solid rgb(16, 201, 139)";
@@ -127,7 +122,6 @@ function addEvent(gridnodes, n) {
               first.classList.remove("currentPlayer");
             }
 
-            console.table(gridcopy);
             let res = isStrike(n);
             if (res) {
               strikeSound.currentTime = 0;
@@ -138,7 +132,7 @@ function addEvent(gridnodes, n) {
 
               // gamewinsound.play();
               let [dir, index] = res;
-              console.log(dir, index);
+
               strikegrid(dir, index);
               setTimeout(() => {
                 gameend.classList.add("showend");
@@ -176,7 +170,6 @@ function createCross() {
         `;
 
   let rightcross = div.getElementsByClassName("rightCross")[0];
-  console.log(rightcross);
 
   setTimeout(() => ((div.firstElementChild.style.width = "50px"), 10));
   setTimeout(() => ((rightcross.style.width = "50px"), 10));
@@ -189,7 +182,6 @@ function isStrike(n) {
   for (let row = 0; row < n; row++) {
     res = new Set(gridcopy[row]);
     if (res.size == 1 && !res.has("")) {
-      console.log("row dne");
       return ["row", row];
     }
   }
@@ -210,7 +202,7 @@ function isStrike(n) {
       }
       colitem.push(gridcopy[row][col]);
     }
-    console.log(colitem, "clitems");
+
     let colset = new Set(colitem);
     if (colset.size == 1 && !colset.has("")) {
       return ["col", col];
@@ -218,17 +210,14 @@ function isStrike(n) {
   }
 
   //left diagnol
-  console.log(leftdig, "leftdeg");
+
   let leftdegset = new Set(leftdig);
   if (leftdegset.size == 1 && !leftdegset.has("")) {
-    console.log("leftdeg");
-
     return ["left", 1];
   }
-  console.log(rightdig, "righdeg");
+
   let rigdegset = new Set(rightdig);
   if (rigdegset.size == 1 && !rigdegset.has("")) {
-    console.log("righdeg");
     return ["right", -1];
   }
 }
@@ -276,15 +265,13 @@ function roboplayer(n) {
   let div = createCirel();
 
   let isDraw = isGameDraw(n);
-  console.log(isDraw, "isdraw");
+
   if (!isDraw) {
     let checkifwin = checkifrobowin();
-    console.log(checkifwin, "robowin index");
+
     let row, col;
     if (checkifwin == -1) {
       smartindexs = checkStrikes();
-
-      console.log(smartindexs, "smartindexes");
 
       if (smartindexs != -1 && gridcopy[smartindexs[0]][smartindexs[1]] == "") {
         row = smartindexs[0];
@@ -302,7 +289,6 @@ function roboplayer(n) {
       col = checkifwin[1];
     }
 
-    console.log(row, col, "final row cl");
     gridcopy[row][col] = o;
 
     gridnodes[row][col].appendChild(div);
@@ -324,7 +310,7 @@ function roboplayer(n) {
 
     // gamewinsound.play();
     let [dir, index] = res;
-    console.log(dir, index);
+
     strikegrid(dir, index);
 
     setTimeout(() => {
